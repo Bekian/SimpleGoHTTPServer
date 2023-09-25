@@ -23,9 +23,9 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func base(w http.ResponseWriter, req *http.Request) {
 	routes := []string{"/hello", "/headers"}
-	fmt.Print(w, "Endpoints: \n")
+	fmt.Fprint(w, "Endpoints: \n")
 	for _, url := range routes {
-		fmt.Fprint(w, url, "\n")
+		fmt.Fprintf(w, url, "\n")
 	}
 }
 
