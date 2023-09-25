@@ -23,12 +23,14 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func base(w http.ResponseWriter, req *http.Request) {
 	routes := []string{"/hello", "/headers"}
+	fmt.Print(w, "Endpoints: \n")
 	for _, url := range routes {
-		fmt.Fprint(w, url)
+		fmt.Fprint(w, url, "\n")
 	}
 }
 
 func main() {
+	// TODO: add christmas endpoint using datetime
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8090" // Default port if PORT is not set
