@@ -21,12 +21,20 @@ func headers(w http.ResponseWriter, req *http.Request) {
 	log.Printf("Received request for /headers from %s\n", req.RemoteAddr)
 }
 
+func base(w http.ResponseWriter, req *http.Request) {
+	routes := []string{"/hello", "/headers"}
+	for _, url := range routes {
+		fmt.Fprint(w, url)
+	}
+}
+
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8090" // Default port if PORT is not set
 	}
 
+	http.HandleFunc("/", base)
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
