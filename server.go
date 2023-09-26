@@ -59,6 +59,7 @@ func getUserTimezone() (string, error) {
 	return tzInfo.Timezone, nil
 }
 
+// TODO: im not sure why but calendar isnt loading, it may have to do with timing and updating
 func calendar(w http.ResponseWriter, req *http.Request) {
 	// Determine the user's timezone automatically
 	userTimezone, err := getUserTimezone()
